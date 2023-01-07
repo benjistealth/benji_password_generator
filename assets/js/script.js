@@ -90,6 +90,7 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var specialChars = confirm("Would you like to use special characters ?")
 
 }
 
@@ -102,7 +103,6 @@ function getRandom(arr) {
 
 // Function to generate password with user inputbyran 
 function generatePassword() {
-
 
 }
 
