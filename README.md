@@ -13,12 +13,12 @@ A single webpage that generates random passwords where users can select length a
     
   <img alt="Screenshot_1" src="assets\images\screenshot1.png">
 
-  ## Screenshot of top of initial prompt asking for number of characters
+  ## Screenshot of initial prompt asking for number of characters
 
     
   <img alt="Screenshot_1" src="assets\images\screenshot2.png">
 
-  ## Screenshot of top of generated password with all character types
+  ## Screenshot of generated password with all character types
 
     
   <img alt="Screenshot_1" src="assets\images\screenshot3.png">
