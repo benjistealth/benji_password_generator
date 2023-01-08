@@ -3,7 +3,7 @@ var specialCharacters = [
   '@',
   '%',
   '+',
-  '\\',
+  // '\\',
   '/',
   "'",
   '!',
@@ -122,9 +122,9 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  if(getPasswordOptions() === "Please try again") {return "Please try again";}
+  if (getPasswordOptions() === "Please try again") { return "Please try again"; }
   let pwdBuild = '';
-  while(pwdBuild.length < pwdLength) {
+  while (pwdBuild.length < pwdLength) {
     if (useSpecial) { pwdBuild += getRandom(specialCharacters); }
     if (useUpper) { pwdBuild += getRandom(upperCasedCharacters); }
     if (useLower) { pwdBuild += getRandom(lowerCasedCharacters); }
@@ -141,7 +141,10 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  password.slice(0, pwdLength-2);
+  console.log("password :" + password);
+  password = password.slice(0, pwdLength);
+  console.log("password :" + password + " " + password.length);
+
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
