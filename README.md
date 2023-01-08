@@ -8,7 +8,7 @@ A single webpage that generates random passwords where users can select length a
 - Allow users to select which characters are included and what length the generated password is
 - There must be no errors in the console which can be seen in the below screenshots
 
-## Screenshot of top of loaded application
+## Screenshot of loaded application with no errors
 
     
   <img alt="Screenshot_1" src="assets\images\screenshot1.png">
