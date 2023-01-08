@@ -3,7 +3,7 @@ var specialCharacters = [
   '@',
   '%',
   '+',
-  // '\\',
+  '\\', // this looks like it could be an issue, being 2 chars in one element
   '/',
   "'",
   '!',
@@ -87,6 +87,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+
 //declare and initialise variables to store user password options
 var useLower = false;
 var useUpper = false;
@@ -105,18 +106,12 @@ function getPasswordOptions() {
   useLower = confirm("Would you like to use lowercase characters ?");
   useUpper = confirm("Would you like to use uppercase characters ?");
   useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
-  console.log("special" + useSpecial);
-  console.log("lower" + useLower);
-  console.log("upper" + useUpper);
-  console.log("numeric" + useNumeric);
-  console.log("length" + pwdLength);
-}
+ }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   let maxElement = arr.length;
   let randElement = Math.floor(Math.random() * maxElement);
-  console.log("random element :" + arr[randElement]);
   return arr[randElement];
 }
 
@@ -130,8 +125,6 @@ function generatePassword() {
     if (useLower) { pwdBuild += getRandom(lowerCasedCharacters); }
     if (useNumeric) { pwdBuild += getRandom(numericCharacters); }
   }
-  // pwdBuild.slice(0, pwdLength-1);
-  console.log("password builder :" + pwdBuild);
   return pwdBuild;
 }
 
@@ -141,12 +134,9 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  console.log("password :" + password);
+  // ensure the final password is the correct length :-)
   password = password.slice(0, pwdLength);
-  console.log("password :" + password + " " + password.length);
-
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 
