@@ -1,99 +1,101 @@
-// Array of special characters to be included in password
-var specialCharacters = [
-  '@',
-  '%',
-  '+',
-  '\\', // this looks like it could be an issue, being 2 chars in one element
-  '/',
-  "'",
-  '!',
-  '#',
-  '$',
-  '^',
-  '?',
-  ':',
-  ',',
-  ')',
-  '(',
-  '}',
-  '{',
-  ']',
-  '[',
-  '~',
-  '-',
-  '_',
-  '.'
-];
+// create a password object that contains all of the properties required
 
-// Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var passwordObj = {
+  useLower: false,
+  useUpper: false,
+  useSpecial: false,
+  useNumeric: false,
+  pwdLength: "",
+  // Array of special characters to be included in password
+  specialCharacters: [
+    '@',
+    '%',
+    '+',
+    '\\', // this looks like it could be an issue, being 2 chars in one element
+    '/',
+    "'",
+    '!',
+    '#',
+    '$',
+    '^',
+    '?',
+    ':',
+    ',',
+    ')',
+    '(',
+    '}',
+    '{',
+    ']',
+    '[',
+    '~',
+    '-',
+    '_',
+    '.'
+  ],
 
-// Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
-];
+  // Array of numeric characters to be included in password
+  numericCharacters: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
 
-// Array of uppercase characters to be included in password
-var upperCasedCharacters = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
-];
+  // Array of lowercase characters to be included in password
+  lowerCasedCharacters: [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'
+  ],
 
-//declare and initialise variables to store user password options
-var useLower = false;
-var useUpper = false;
-var useSpecial = false;
-var useNumeric = false;
-var pwdLength = "";
+  // Array of uppercase characters to be included in password
+  upperCasedCharacters: [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z'
+  ],
+};
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -102,11 +104,11 @@ function getPasswordOptions() {
     alert("Invalid password length. Please choose a number between 10 and 64.");
     return "Please try again";
   }
-  useSpecial = confirm("Would you like to use special characters ?");
-  useLower = confirm("Would you like to use lowercase characters ?");
-  useUpper = confirm("Would you like to use uppercase characters ?");
-  useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
- }
+  passwordObj.useSpecial = confirm("Would you like to use special characters ?");
+  passwordObj.useLower = confirm("Would you like to use lowercase characters ?");
+  passwordObj.useUpper = confirm("Would you like to use uppercase characters ?");
+  passwordObj.useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -120,10 +122,10 @@ function generatePassword() {
   if (getPasswordOptions() === "Please try again") { return "Please try again"; }
   let pwdBuild = '';
   while (pwdBuild.length < pwdLength) {
-    if (useSpecial) { pwdBuild += getRandom(specialCharacters); }
-    if (useUpper) { pwdBuild += getRandom(upperCasedCharacters); }
-    if (useLower) { pwdBuild += getRandom(lowerCasedCharacters); }
-    if (useNumeric) { pwdBuild += getRandom(numericCharacters); }
+    if (passwordObj.useSpecial) { pwdBuild += getRandom(passwordObj.specialCharacters); }
+    if (passwordObj.useUpper) { pwdBuild += getRandom(passwordObj.upperCasedCharacters); }
+    if (passwordObj.useLower) { pwdBuild += getRandom(passwordObj.lowerCasedCharacters); }
+    if (passwordObj.useNumeric) { pwdBuild += getRandom(passwordObj.numericCharacters); }
   }
   return pwdBuild;
 }
