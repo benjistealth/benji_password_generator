@@ -1,5 +1,5 @@
 // create a password object that contains all of the properties required
-
+// Note this is a bit long --> line 98
 var passwordObj = {
   useLower: false,
   useUpper: false,
@@ -104,10 +104,10 @@ function getPasswordOptions() {
     alert("Invalid password length. Please choose a number between 10 and 64.");
     return "Please try again";
   }
-  passwordObj.useSpecial = confirm("Would you like to use special characters ?");
-  passwordObj.useLower = confirm("Would you like to use lowercase characters ?");
-  passwordObj.useUpper = confirm("Would you like to use uppercase characters ?");
-  passwordObj.useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
+  this.useSpecial = confirm("Would you like to use special characters ?");
+  this.useLower = confirm("Would you like to use lowercase characters ?");
+  this.useUpper = confirm("Would you like to use uppercase characters ?");
+  this.useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
 }
 
 // Function for getting a random element from an array
@@ -122,10 +122,10 @@ function generatePassword() {
   if (getPasswordOptions() === "Please try again") { return "Please try again"; }
   let pwdBuild = '';
   while (pwdBuild.length < pwdLength) {
-    if (passwordObj.useSpecial) { pwdBuild += getRandom(passwordObj.specialCharacters); }
-    if (passwordObj.useUpper) { pwdBuild += getRandom(passwordObj.upperCasedCharacters); }
-    if (passwordObj.useLower) { pwdBuild += getRandom(passwordObj.lowerCasedCharacters); }
-    if (passwordObj.useNumeric) { pwdBuild += getRandom(passwordObj.numericCharacters); }
+    if (this.useSpecial) { pwdBuild += getRandom(this.specialCharacters); }
+    if (this.useUpper) { pwdBuild += getRandom(this.upperCasedCharacters); }
+    if (this.useLower) { pwdBuild += getRandom(this.lowerCasedCharacters); }
+    if (this.useNumeric) { pwdBuild += getRandom(this.numericCharacters); }
   }
   return pwdBuild;
 }
