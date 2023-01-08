@@ -99,7 +99,7 @@ function getPasswordOptions() {
   pwdLength = prompt("Please choose a password length between 10 & 64 characters....");
   if (pwdLength < 10 || pwdLength > 64) {
     alert("Invalid password length. Please choose a number between 10 and 64.");
-    return;
+    return "Please try again";
   }
   useSpecial = confirm("Would you like to use special characters ?");
   useLower = confirm("Would you like to use lowercase characters ?");
@@ -122,7 +122,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  getPasswordOptions();
+  if(getPasswordOptions() === "Please try again") {return "Please try again";}
   let pwdBuild = '';
   while(pwdBuild.length < pwdLength) {
     if (useSpecial) { pwdBuild += getRandom(specialCharacters); }
@@ -130,7 +130,7 @@ function generatePassword() {
     if (useLower) { pwdBuild += getRandom(lowerCasedCharacters); }
     if (useNumeric) { pwdBuild += getRandom(numericCharacters); }
   }
-  // pwdBuild.slice(0, pwdLength);
+  // pwdBuild.slice(0, pwdLength-1);
   console.log("password builder :" + pwdBuild);
   return pwdBuild;
 }
@@ -141,6 +141,7 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  password.slice(0, pwdLength-2);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
