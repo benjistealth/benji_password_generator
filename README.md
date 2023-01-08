@@ -7,10 +7,20 @@ A single webpage that generates random passwords where users can select length a
 - A simple webpage to generate passwords containing various character options for the user
 - Allow users to select which characters are included and what length the generated password is
 
-## Screenshot of top of page of deployed application
+## Screenshot of top of loaded application
+
+    
+  <img alt="Screenshot_1" src="assets\images\screenshot1.png">
+
+  ## Screenshot of top of initial prompt asking for number of characters
 
     
   <img alt="Screenshot_1" src="assets\images\screenshot2.png">
+
+  ## Screenshot of top of generated password with all character types
+
+    
+  <img alt="Screenshot_1" src="assets\images\screenshot3.png">
 
 
 ## Installation
