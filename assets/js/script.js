@@ -87,7 +87,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-//variables to store user password options
+//declare and initialise variables to store user password options
 var useLower = false;
 var useUpper = false;
 var useSpecial = false;
@@ -100,24 +100,39 @@ function getPasswordOptions() {
   if (pwdLength < 10 || pwdLength > 64) {
     alert("Invalid password length. Please choose a number between 10 and 64.");
     return;
-}
+  }
   useSpecial = confirm("Would you like to use special characters ?");
   useLower = confirm("Would you like to use lowercase characters ?");
   useUpper = confirm("Would you like to use uppercase characters ?");
-  useNumeric = confirm("Would you like to use numeric characters ?");
+  useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
+  console.log("special" + useSpecial);
+  console.log("lower" + useLower);
+  console.log("upper" + useUpper);
+  console.log("numeric" + useNumeric);
+  console.log("length" + pwdLength);
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   let maxElement = arr.length;
   let randElement = Math.floor(Math.random() * maxElement);
-
+  console.log("random element :" + arr[randElement]);
+  return arr[randElement];
 }
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-
+  let pwdBuild = '';
+  while(pwdBuild.length < pwdLength) {
+    if (useSpecial) { pwdBuild += getRandom(specialCharacters); }
+    if (useUpper) { pwdBuild += getRandom(upperCasedCharacters); }
+    if (useLower) { pwdBuild += getRandom(lowerCasedCharacters); }
+    if (useNumeric) { pwdBuild += getRandom(numericCharacters); }
+  }
+  // pwdBuild.slice(0, pwdLength);
+  console.log("password builder :" + pwdBuild);
+  return pwdBuild;
 }
 
 // Get references to the #generate element
