@@ -87,11 +87,22 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+var useLower = false;
+var useUpper = false;
+var useSpecial = false;
+var useNumeric = false;
+var pwdLength = "";
+
+
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var specialChars = confirm("Would you like to use special characters ?")
-
+  pwdLength = prompt("Please choose a password length between 10 & 64 characters....");
+  useSpecial = confirm("Would you like to use special characters ?");
+  useLower = confirm("Would you like to use lowercase characters ?");
+  useUpper = confirm("Would you like to use uppercase characters ?");
+  useNumeric = confirm("Would you like to use numeric characters ?");
 }
 
 // Function for getting a random element from an array
@@ -103,6 +114,7 @@ function getRandom(arr) {
 
 // Function to generate password with user inputbyran 
 function generatePassword() {
+  getPasswordOptions();
 
 }
 
