@@ -102,7 +102,7 @@ function getPasswordOptions() {
   this.pwdLength = prompt("Please choose a password length between 10 & 64 characters....");
   if (this.pwdLength < 10 || this.pwdLength > 64) {
     alert("Invalid password length. Please choose a number between 10 and 64.");
-    return "Please try again";
+    return "";
   }
   this.useSpecial = confirm("Would you like to use special characters ?");
   this.useLower = confirm("Would you like to use lowercase characters ?");
@@ -119,7 +119,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  if (getPasswordOptions() === "Please try again") { return "Please try again"; }
+  if (getPasswordOptions() === "") { return ""; }
   let pwdBuild = '';
   while (pwdBuild.length < this.pwdLength) {
     if (this.useSpecial) { pwdBuild += getRandom(passwordObj.specialCharacters); }
