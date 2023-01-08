@@ -87,18 +87,20 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+//variables to store user password options
 var useLower = false;
 var useUpper = false;
 var useSpecial = false;
 var useNumeric = false;
 var pwdLength = "";
 
-
-
-
 // Function to prompt user for password options
 function getPasswordOptions() {
   pwdLength = prompt("Please choose a password length between 10 & 64 characters....");
+  if (pwdLength < 10 || pwdLength > 64) {
+    alert("Invalid password length. Please choose a number between 10 and 64.");
+    return;
+}
   useSpecial = confirm("Would you like to use special characters ?");
   useLower = confirm("Would you like to use lowercase characters ?");
   useUpper = confirm("Would you like to use uppercase characters ?");
@@ -112,7 +114,7 @@ function getRandom(arr) {
 
 }
 
-// Function to generate password with user inputbyran 
+// Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
 
