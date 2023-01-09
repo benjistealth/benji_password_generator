@@ -121,12 +121,12 @@ function getRandom(arr) {
 function generatePassword() {
   if (getPasswordOptions() === "") { return ""; }
   let pwdBuild = '';
-  while (pwdBuild.length < this.pwdLength) {
+  // generate password if user has selected chars & pwd length - otherwise return (handles edge cases but isnt pretty))
+  while ((pwdBuild.length < this.pwdLength) && (this.useSpecial || this.useLower || this.useNumeric || this.useUpper)) {
     if (this.useSpecial) { pwdBuild += getRandom(passwordObj.specialCharacters); }
     if (this.useUpper) { pwdBuild += getRandom(passwordObj.upperCasedCharacters); }
     if (this.useLower) { pwdBuild += getRandom(passwordObj.lowerCasedCharacters); }
     if (this.useNumeric) { pwdBuild += getRandom(passwordObj.numericCharacters); }
-    alert("You need to select some character types to create a password !")
   }
   return pwdBuild;
 }
@@ -137,7 +137,7 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  // ensure the final password is the correct length :-)
+  // ensure the final password is the correct length - a final safeguard
   password = password.slice(0, pwdLength);
   var passwordText = document.querySelector('#password');
   passwordText.value = password;
