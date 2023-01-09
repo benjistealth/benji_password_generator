@@ -99,11 +99,14 @@ var passwordObj = {
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  changeBackground("blue");
   this.pwdLength = prompt("Please choose a password length between 10 & 64 characters....");
   if (this.pwdLength < 10 || this.pwdLength > 64) {
+    changeBackground("red");
     alert("Invalid password length. Please choose a number between 10 and 64.");
     return "";
   } // if user selects a valid PWD length, then ask the char questions
+  changeBackground("blue");
   this.useSpecial = confirm("Would you like to use special characters ?");
   this.useLower = confirm("Would you like to use lowercase characters ?");
   this.useUpper = confirm("Would you like to use uppercase characters ?");
@@ -131,7 +134,7 @@ function generatePassword() {
   return pwdBuild;
 }
 
-// Get references to the #generate element
+// Get references to the #generate element & store into variable
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
@@ -143,6 +146,13 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// change page colour based on password generator status - red for error
+function changeBackground(colour) {
+const element = document.querySelector('.wrapper');
+if (colour === "blue") {
+  element.style.backgroundColor = '#061e36';
+}
+element.style.backgroundColor = '#870f15';
+}
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
