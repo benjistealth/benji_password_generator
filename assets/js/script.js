@@ -107,7 +107,7 @@ function getPasswordOptions() {
   this.useSpecial = confirm("Would you like to use special characters ?");
   this.useLower = confirm("Would you like to use lowercase characters ?");
   this.useUpper = confirm("Would you like to use uppercase characters ?");
-  this.useNumeric = confirm("Would you like to use numeric characters ?", 'no', 'yes');
+  this.useNumeric = confirm("Would you like to use numeric characters ?");
 }
 
 // Function for getting a random element from an array
