@@ -126,6 +126,7 @@ function generatePassword() {
     if (this.useUpper) { pwdBuild += getRandom(passwordObj.upperCasedCharacters); }
     if (this.useLower) { pwdBuild += getRandom(passwordObj.lowerCasedCharacters); }
     if (this.useNumeric) { pwdBuild += getRandom(passwordObj.numericCharacters); }
+    alert("You need to select some character types to create a password !")
   }
   return pwdBuild;
 }
