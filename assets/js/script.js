@@ -152,7 +152,7 @@ const element = document.querySelector('.wrapper');
 if (colour === "blue") {
   element.style.backgroundColor = '#061e36';
 }
-element.style.backgroundColor = '#870f15';
+else element.style.backgroundColor = '#870f15';
 }
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
