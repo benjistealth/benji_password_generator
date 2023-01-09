@@ -103,14 +103,14 @@ function getPasswordOptions() {
   if (this.pwdLength < 10 || this.pwdLength > 64) {
     alert("Invalid password length. Please choose a number between 10 and 64.");
     return "";
-  }
+  } // if user selects a valid PWD length, then ask the char questions
   this.useSpecial = confirm("Would you like to use special characters ?");
   this.useLower = confirm("Would you like to use lowercase characters ?");
   this.useUpper = confirm("Would you like to use uppercase characters ?");
   this.useNumeric = confirm("Would you like to use numeric characters ?");
 }
 
-// Function for getting a random element from an array
+// Function for getting a random element from an array - we will pass in arrays of chars as chosen by user
 function getRandom(arr) {
   let maxElement = arr.length;
   let randElement = Math.floor(Math.random() * maxElement);
@@ -121,9 +121,9 @@ function getRandom(arr) {
 function generatePassword() {
   if (getPasswordOptions() === "") { return ""; }
   let pwdBuild = '';
-  // generate password if user has selected chars & pwd length - otherwise return (handles edge cases but isnt pretty))
+  // generate password if user has selected at least 1 char type & pwd length is not yet complete - otherwise return (handles edge cases but isnt pretty))
   while ((pwdBuild.length < this.pwdLength) && (this.useSpecial || this.useLower || this.useNumeric || this.useUpper)) {
-    if (this.useSpecial) { pwdBuild += getRandom(passwordObj.specialCharacters); }
+    if (this.useSpecial) { pwdBuild += getRandom(passwordObj.specialCharacters); } // using "this" seemed to break here where arrays are passed in
     if (this.useUpper) { pwdBuild += getRandom(passwordObj.upperCasedCharacters); }
     if (this.useLower) { pwdBuild += getRandom(passwordObj.lowerCasedCharacters); }
     if (this.useNumeric) { pwdBuild += getRandom(passwordObj.numericCharacters); }
