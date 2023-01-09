@@ -30,6 +30,11 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+#error {
+  text-align: center;
+  color: red;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
